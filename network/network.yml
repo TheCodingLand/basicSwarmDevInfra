@@ -12,12 +12,12 @@ services:
       - "--acme.storage=/etc/traefik/acme/acme.json"
       - "--acme.entryPoint=https"
       - "--acme.httpChallenge.entryPoint=http"
-      - "--acme.onHostRule=true"
-      - "--acme.onDemand=false"
-      - "--acme.email=aureussz@gmail.com"
+      #- "--acme.onHostRule=true"
+      #- "--acme.onDemand=false"
+      #- "--acme.email=julien.lebourg@ctg.lu"
       - "--docker"
       - "--docker.swarmMode"
-      - "--docker.domain=mytools.live"
+      #- "--docker.domain=ctg.lu"
       - "--docker.watch"
 
     volumes:
