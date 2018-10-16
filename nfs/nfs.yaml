@@ -6,7 +6,8 @@ services:
       - /data:/data
     ports:
       - 2049:2049
-    
+    environment:
+     - SHARED_DIRECTORY=false     
     deploy:
       placement:
         constraints:
