@@ -6,9 +6,10 @@ services:
       - /data:/data
     ports:
       - 2049:2049
-    priviliedged: true
-
+    
+    priviledged: true
     deploy:
+      
       placement:
         constraints:
           - node.role == manager
