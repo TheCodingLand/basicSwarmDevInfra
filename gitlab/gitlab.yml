@@ -66,7 +66,7 @@ services:
     - GITLAB_SECRETS_OTP_KEY_BASE=B186o73l7a
 
     - GITLAB_ROOT_PASSWORD=B186o73l7a
-    - GITLAB_ROOT_EMAIL=aureussz@gmail.com
+    - GITLAB_ROOT_EMAIL=julien.lebourg@ctg.lu
 
     - GITLAB_NOTIFY_ON_BROKEN_BUILDS=true
     - GITLAB_NOTIFY_PUSHER=false
