@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.7"
 services:
   traefik:
     image: traefik:1.7-alpine
@@ -54,5 +54,5 @@ volumes:
   nfs_acme:
     driver_opts:
       type: "nfs"
-      o: "addr=nfs_nfs,nolock,soft,rw"
+      o: "addr=swarm-master,nolock,soft,rw"
       device: ":/data/acme"
