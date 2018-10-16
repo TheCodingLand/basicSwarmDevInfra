@@ -1,11 +1,12 @@
 version: '3.7'
 services:
   nfs:
+    image: nfs-server-alpine
     volumes:
       - /data:/data
     ports:
       - 2049:2049
-      
+    priviliedged: true
     networks:
      - proxy
      - internal
