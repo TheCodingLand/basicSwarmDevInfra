@@ -7,7 +7,7 @@ services:
     ports:
       - 2049:2049
     
-    priviledged: true
+    privileged: true
     deploy:
       
       placement:
