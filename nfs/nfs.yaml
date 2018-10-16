@@ -12,7 +12,6 @@ services:
       placement:
         constraints:
           - node.role == manager
-    
     networks:
      - proxy
      - internal
