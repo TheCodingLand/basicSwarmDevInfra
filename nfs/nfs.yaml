@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  nfs:
+    volumes:
+      - /data:/data
+    port:
+      - 2049:2049
+      
+    networks:
+     - proxy
+     - internal
+
+networks:
+  proxy:
+    attachable: true
+    driver: overlay
+    external: true
+
+  internal:
+    attachable: true
+    driver: overlay
+    external: true
