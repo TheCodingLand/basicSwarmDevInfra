@@ -24,7 +24,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - nfs_acme:/etc/traefik/acme
     networks:
-      - externe
+      - proxy
     ports:
       - 80:80
       #- 443:443
