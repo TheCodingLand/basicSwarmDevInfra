@@ -25,7 +25,7 @@ sudo apt-get install nfs-common -y
 #sudo mkdir /data
 #sudo chown $USER /data
 #sudo chmod 777 /data
-#echo '/data          (rw,no_root_squash,anonuid=1026,anongid=100,sync,no_subtree_check,no_acl)' | sudo tee --append /etc/exports > /dev/null
+#echo '/data          (rw,no_root_squash,no_subtree_check) | sudo tee --append /etc/exports > /dev/null
 #sudo service nfs-server restart
 
 

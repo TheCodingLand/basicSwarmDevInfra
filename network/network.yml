@@ -17,7 +17,7 @@ services:
       #- "--acme.email=julien.lebourg@ctg.lu"
       - "--docker"
       - "--docker.swarmMode"
-      #- "--docker.domain=ctg.lu"
+      - "--docker.domain=ctg.lu"
       - "--docker.watch"
 
     volumes:
@@ -46,7 +46,6 @@ services:
         - "traefik.frontend.auth.basic.users=jlebourg:$$apr1$$6A77IGfe$$zH1fYcEOTArJq1/BN2ptd0"
 networks:
   proxy:
-    attachable: true
     driver: overlay
     external: true
 
