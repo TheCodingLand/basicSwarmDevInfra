@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.7"
 services:
   portainer:
     image: portainer/portainer:1.19.2
@@ -36,9 +36,7 @@ services:
 networks:
   portainer_agent:
     driver: overlay
-    attachable: true
   proxy:
-    attachable: true
     driver: overlay
     external: true
 
