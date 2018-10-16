@@ -13,17 +13,17 @@ services:
     ###  placement:
     ##    constraints:
     #      - node.role == manager
-    networks:
-     - proxy
-     - internal
+ #   networks:
+ #    - proxy
+ #    - internal
 
 
 
-networks:
-  proxy:
-    driver: overlay
-    external: true
-
-  internal:
-    driver: overlay
-    external: true
+##networks:
+##  proxy:
+##    driver: overlay
+#    external: true
+#
+ # internal:
+#    driver: overlay
+#    external: true
