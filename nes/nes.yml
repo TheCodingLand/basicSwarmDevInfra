@@ -1,0 +1,27 @@
+version: '3.2'
+services:
+  nes:
+    image: nes
+    volumes:
+      - nfs_nes:/data
+    deploy:
+      labels:
+        - "traefik.frontend.rule=Host:nes.mytools.live"
+        - "traefik.port=3000"
+        - "traefik.frontend.entryPoints=http,https"
+        - "traefik.backend=nes"
+    networks:
+     - externe
+
+networks:
+  externe:
+    attachable: true
+    driver: overlay
+    external: true
+
+volumes:
+  nfs_nes:
+    driver_opts:
+      type: "nfs"
+      o: "addr=192.168.1.183,nolock,soft,rw"
+      device: ":/data/nes"

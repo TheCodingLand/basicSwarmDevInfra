@@ -1,0 +1,23 @@
+version: '3.2'
+services:
+  registry:
+    image: registry:2
+   # --secret domain.crt \
+   # --secret domain.key \
+    deploy:
+      placement:
+        constraints:
+          - node.labels.registry==true
+    volumes:
+      - nfs_registry:/var/lib/registy
+    environment:
+      - REGISTRY_HTTP_ADDR= 0.0.0.0:80
+    ports:
+      - 8888:80
+
+volumes:
+  nfs_registry:
+    driver_opts:
+      type: "nfs"
+      o: "addr=192.168.1.183,nolock,soft,rw"
+      device: ":/data/registry"

@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+  cats:
+    image: mikesir87/cats
+    deploy:
+
+      labels:
+        - "traefik.frontend.rule=Host:cats.mytools.live"
+        - "traefik.port=5000"
+        - "traefik.frontend.entryPoints=http,https"
+        - "traefik.backend=cats"
+    networks:
+     - externe
+
+networks:
+  externe:
+    attachable: true
+    driver: overlay
+    external: true
