@@ -2,16 +2,17 @@ version: '3.7'
 services:
   nfs:
     image: itsthenetwork/nfs-server-alpine:latest
+    
     volumes:
       - /data:/data
     ports:
       - 2049:2049
     environment:
      - SHARED_DIRECTORY=/data     
-    deploy:
-      placement:
-        constraints:
-          - node.role == manager
+    ###deploy:
+    ###  placement:
+    ##    constraints:
+    #      - node.role == manager
     networks:
      - proxy
      - internal
