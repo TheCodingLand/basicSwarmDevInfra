@@ -30,7 +30,7 @@ services:
       - postgresql
     deploy:
       labels:
-        - "traefik.frontend.rule=Host:gitlab.mytools.live"
+        - "traefik.frontend.rule=Host:gitlab.tina.ctg.lu"
         - "traefik.port=80"
         - "traefik.frontend.entryPoints=http,https"
         - "traefik.backend=gitlab"
