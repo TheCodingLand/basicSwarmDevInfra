@@ -6,19 +6,21 @@ services:
       - /data:/data
     ports:
       - 2049:2049
-    config:
-      - nfs-conf
+    
     deploy:
       placement:
         constraints:
           - node.role == manager
+    configs:
+     - nfs-config
     networks:
      - proxy
      - internal
 
 configs:
-  gitlab-configs:
+  nfs-config:
     file: ./nfs.configs
+
 networks:
   proxy:
     driver: overlay
