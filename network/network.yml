@@ -1,7 +1,7 @@
 version: "3.2"
 services:
   traefik:
-    image: traefik:1.7
+    image: traefik:1.7-alpine
     command:
       - "--api"
       - "--loglevel=INFO"
@@ -27,7 +27,7 @@ services:
       - externe
     ports:
       - 80:80
-      - 443:443
+      #- 443:443
     deploy:
       placement:
         constraints:
@@ -38,10 +38,10 @@ services:
       restart_policy:
         condition: on-failure
       labels:
-        - "traefik.frontend.rule=Host:traefik.mytools.live"
+        - "traefik.frontend.rule=Host:traefik.tina.ctg.lu"
         - "traefik.port=8080"
         - "traefik.backend=traefik"
-        - "traefik.frontend.entryPoints=http,https"
+        - "traefik.frontend.entryPoints=http"
         - "traefik.docker.network=proxy"
         - "traefik.frontend.auth.basic.users=jlebourg:$$apr1$$6A77IGfe$$zH1fYcEOTArJq1/BN2ptd0"
 networks:
@@ -54,5 +54,5 @@ volumes:
   nfs_acme:
     driver_opts:
       type: "nfs"
-      o: "addr=192.168.1.183,nolock,soft,rw"
+      o: "addr=nfs_nfs,nolock,soft,rw"
       device: ":/data/acme"
