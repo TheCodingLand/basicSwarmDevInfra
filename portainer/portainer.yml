@@ -3,7 +3,7 @@ services:
   portainer:
     image: portainer/portainer:1.19.2
     volumes:
-      - nfs_portainer:/data
+      - portainer_data:/data
     networks:
       - portainer_agent
       - proxy
@@ -41,7 +41,7 @@ networks:
     external: true
 
 volumes:
-  nfs_portainer:
+  portainer_data:
     driver_opts:
       type: "nfs"
       o: "addr=tina.ctg.lu,nolock,soft,rw"
