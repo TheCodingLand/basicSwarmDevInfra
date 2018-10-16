@@ -8,7 +8,7 @@ services:
     volumes:
       - nfs_gitlab_redis:/var/lib/redis
     networks:
-      - externe
+      - proxy
 
   postgresql:
     image: sameersbn/postgresql:10
@@ -20,7 +20,7 @@ services:
     - DB_NAME=gitlabhq_production
     - DB_EXTENSION=pg_trgm
     networks:
-      - externe
+      - proxy
 
   gitlab:
     
@@ -35,7 +35,7 @@ services:
         - "traefik.frontend.entryPoints=http,https"
         - "traefik.backend=gitlab"
     networks:
-      - externe
+      - proxy
     volumes:
       - nfs_gitlab_data:/home/git/data
     environment:
@@ -54,7 +54,8 @@ services:
     - TZ=Europe/Paris
     - GITLAB_TIMEZONE=Europe/Paris
 
-    - GITLAB_HTTPS=true
+    #- GITLAB_HTTPS=true
+    - GITLAB_HTTPS=false
     - SSL_SELF_SIGNED=false
 
     - GITLAB_HOST=gitlab.mytools.live
@@ -169,7 +170,7 @@ services:
       - REGISTER_LOCKED=false
    
     networks:
-      - externe
+      - proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - nfs_runner_etc:/etc/gitlab-runner
@@ -177,8 +178,7 @@ services:
 
 
 networks:
-  externe:
-    attachable: true
+  proxy:
     driver: overlay
     external: true
 
@@ -186,34 +186,35 @@ volumes:
   nfs_runner_etc:
     driver_opts:
       type: "nfs"
-      o: "addr=192.168.1.183,nolock,soft,rw"
+      o: "addr=tina.ctg.lu,nolock,soft,rw"
       device: ":/data/runner/etc/gitlab_runner"
 
   nfs_runner_home:
     driver_opts:
       type: "nfs"
-      o: "addr=192.168.1.183,nolock,soft,rw"
+      o: "addr=tina.ctg.lu,nolock,soft,rw"
       device: ":/data/runner/home/gitlab_runner"
 
   nfs_gitlab_postgres:
     driver_opts:
       type: "nfs"
-      o: "addr=192.168.1.183,nolock,soft,rw"
+      o: "addr=tina.ctg.lu,nolock,soft,rw"
       device: ":/data/gitlab/postgres"
 
   nfs_gitlab_data:
     driver_opts:
       type: "nfs"
-      o: "addr=192.168.1.183,nolock,soft,rw"
+      o: "addr=tina.ctg.lu,nolock,soft,rw"
       device: ":/data/gitlab/data"
 
   nfs_gitlab_redis:
     driver_opts:
       type: "nfs"
-      o: "addr=192.168.1.183,nolock,soft,rw"
+      o: "addr=tina.ctg.lu,nolock,soft,rw"
       device: ":/data/gitlab/redis"
 
       
+
 
 
 
