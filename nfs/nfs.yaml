@@ -3,7 +3,7 @@ services:
   nfs:
     volumes:
       - /data:/data
-    port:
+    ports:
       - 2049:2049
       
     networks:
@@ -12,11 +12,9 @@ services:
 
 networks:
   proxy:
-    attachable: true
     driver: overlay
     external: true
 
   internal:
-    attachable: true
     driver: overlay
     external: true
