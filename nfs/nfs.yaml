@@ -7,20 +7,17 @@ services:
     ports:
       - 2049:2049
     environment:
-     - SHARED_DIRECTORY=false     
+     - SHARED_DIRECTORY=/data     
     deploy:
       placement:
         constraints:
           - node.role == manager
-    configs:
-     - nfs-config
+    
     networks:
      - proxy
      - internal
 
-configs:
-  nfs-config:
-    file: ./nfs.configs
+
 
 networks:
   proxy:
