@@ -22,7 +22,7 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - nfs_acme:/etc/traefik/acme
+      - nfs_acme_traefik:/etc/traefik/acme
     networks:
       - proxy
     ports:
