@@ -53,5 +53,5 @@ volumes:
   nfs_acme:
     driver_opts:
       type: "nfs"
-      o: "addr=swarm-master,nolock,soft,rw"
+      o: "addr=tina.ctg.lu,nolock,soft,rw"
       device: ":/data/acme"
