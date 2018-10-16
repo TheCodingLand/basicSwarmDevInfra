@@ -50,7 +50,7 @@ networks:
     external: true
 
 volumes:
-  nfs_acme:
+  nfs_acme_traefik:
     driver_opts:
       type: "nfs"
       o: "addr=tina.ctg.lu,nolock,soft,rw"
