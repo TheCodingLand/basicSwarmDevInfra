@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.7'
 
 services:
   redis:
@@ -160,7 +160,7 @@ services:
     image: 'gitlab/gitlab-runner:latest'
     
     environment:
-      - CI_SERVER_URL=https://gitlab.mytools.live
+      - CI_SERVER_URL=https://gitlab.tina.ctg.lu
       - RUNNER_NAME=local-docker-runner
       - REGISTER_NON_INTERACTIVE=true
       - REGISTRATION_TOKEN=4YMExUDadrAXer-4aJ4x
