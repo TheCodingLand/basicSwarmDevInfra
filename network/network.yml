@@ -42,10 +42,10 @@ services:
         - "traefik.port=8080"
         - "traefik.backend=traefik"
         - "traefik.frontend.entryPoints=http,https"
-        - "traefik.docker.network=externe"
+        - "traefik.docker.network=proxy"
         - "traefik.frontend.auth.basic.users=jlebourg:$$apr1$$6A77IGfe$$zH1fYcEOTArJq1/BN2ptd0"
 networks:
-  externe:
+  proxy:
     attachable: true
     driver: overlay
     external: true

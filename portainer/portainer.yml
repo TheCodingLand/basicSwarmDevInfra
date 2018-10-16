@@ -2,24 +2,22 @@ version: "3.2"
 services:
   portainer:
     image: portainer/portainer:1.19.2
-
     volumes:
       - nfs_portainer:/data
     networks:
       - portainer_agent
-      - externe
+      - proxy
     deploy:
       mode: global
       placement:
         constraints:
           - node.role == manager
       labels:
-        - "traefik.frontend.rule=Host:portainer.mytools.live"
+        - "traefik.frontend.rule=Host:portainer.tina.ctg.lu"
         - "traefik.port=9000"
         - "traefik.backend=portainer"
-        - "traefik.frontend.entryPoints=http,https"
-        - "traefik.docker.network=externe"
-
+        - "traefik.frontend.entryPoints=http"
+        - "traefik.docker.network=proxy"
   agent:
     image: portainer/agent:1.1.2
     environment:
@@ -39,7 +37,7 @@ networks:
   portainer_agent:
     driver: overlay
     attachable: true
-  externe:
+  proxy:
     attachable: true
     driver: overlay
     external: true
@@ -48,7 +46,7 @@ volumes:
   nfs_portainer:
     driver_opts:
       type: "nfs"
-      o: "addr=192.168.1.183,nolock,soft,rw"
+      o: "addr=nfs_nfs,nolock,soft,rw"
       device: ":/data/portainer"
 
 

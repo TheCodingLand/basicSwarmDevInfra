@@ -6,7 +6,7 @@ services:
     command:
       - --loglevel warning
     volumes:
-      - nfs_gitlab_redis:/var/lib/redis 
+      - nfs_gitlab_redis:/var/lib/redis
     networks:
       - externe
 
