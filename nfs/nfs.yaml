@@ -6,8 +6,6 @@ services:
       - /data:/data
     ports:
       - 2049:2049
-    
-    privileged: true
     deploy:
       
       placement:
