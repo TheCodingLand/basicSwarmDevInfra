@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   nfs:
-    image: nfs-server-alpine
+    image: nfs-server-alpine:latest
     volumes:
       - /data:/data
     ports:
